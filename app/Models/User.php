@@ -17,13 +17,29 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+  
     protected $fillable = [
         'name',
         'email',
         'password',
-        'role'
+        'role',
+        'privilege',
+        'password',
+        'password_expiration_date',
+        'activation_effectivity_date',
+        'activation_expiration_date',
+        'archive',
+        'deactivation_reason',
+        'deactivation_effectivity_date'
+    ];
+    protected $with = [
+        'accessLevel',
+     
     ];
 
+    public function accessLevel() {
+        return $this->belongsTo(AccessLevel::class,'privilege');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

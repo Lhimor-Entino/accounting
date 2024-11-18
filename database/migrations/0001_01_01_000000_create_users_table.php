@@ -17,14 +17,28 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('role')
-                  ->unsigned()
-                  ->nullable()
-                  ->comment('1 - admin');
-            $table->tinyInteger('archive')->default(0); // active 
+            
+            $table->tinyInteger('role')->nullable()->comment('1 - admin, 2 - user');
+        
+            $table->tinyInteger('privilege')->nullable()->index()->comment('Privileges for different access levels');
+            $table->integer('password_expiration_date')->nullable()->unsigned()->comment('In months');
+        
+            $table->timestamp('activation_effectivity_date')->nullable();
+            $table->integer('activation_expiration_date')->nullable()->comment('In months');
+        
+            $table->string('deactivation_reason')->nullable()->comment('Reason for deactivation');
+        
+            $table->timestamp('deactivation_effectivity_date')->nullable();
+        
+            // Archive status (active or inactive), set default to 0 (active)
+            $table->tinyInteger('archive')->default(0);
+       
             $table->rememberToken();
+        
             $table->timestamps();
         });
+        
+
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();

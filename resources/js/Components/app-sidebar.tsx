@@ -1,4 +1,4 @@
-import { Building2Icon, Calendar, CreditCardIcon, Home, Inbox, Search, Settings, UserCog2Icon } from "lucide-react"
+import { Building2Icon, Calendar, CreditCardIcon, Home, Inbox, NotebookPenIcon, Search, Settings, UserCog2Icon } from "lucide-react"
 
 import {
   Sidebar,
@@ -21,6 +21,7 @@ import { Link } from '@inertiajs/react';
 
 import ActiveLink from "@/CustomComponents/ActiveLink";
 import { Button } from "./ui/button";
+import User from "@/CustomComponents/Navigation/User";
 // Menu items.
 const items = [
   {
@@ -32,6 +33,11 @@ const items = [
     title: "Accounts",
     url: "accounts.show",
     icon: CreditCardIcon,
+  },
+  {
+    title: "Journal Entry ",
+    url: "accounts.show",
+    icon: NotebookPenIcon,
   },
   {
     title: "Users",
@@ -54,6 +60,7 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent className="">
+        <User />
         <SidebarGroup>
           <SidebarGroupLabel >Modules</SidebarGroupLabel>
           <SidebarGroupContent>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AccessLevel;
 use App\Models\Account;
 use App\Models\Accounts;
 use App\Models\AccountSubTypes;
@@ -622,5 +623,28 @@ class DatabaseSeeder extends Seeder
             'account_sub_id' => 12,
             'num_months_depreciation' => 180,  // Example depreciation months
         ]);
+
+
+        AccessLevel::create([
+            'role' => 'Bank Accounts Data encoder',
+            'description' => 'inflow & outflow'
+        ]);
+        AccessLevel::create([
+            'role' => 'Accounts Payable encoder',
+             'description' => 'inflow'
+        ]);
+        AccessLevel::create([
+            'role' => 'Government Reports encoder',
+            'description' => 'inflow'
+        ]);
+        AccessLevel::create([
+            'role' => 'Payroll Encoder',
+            'description' => 'inflow'
+        ]);
+        AccessLevel::create([
+            'role' => 'Check Issuer & Bank Monitoring',
+            'description' => 'inflow & flow'
+        ]);
+
     }
 }

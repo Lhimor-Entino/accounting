@@ -13,6 +13,9 @@ export interface User {
     email: string;
     email_verified_at?: string;
     role: 'MAKER' | 'APPROVER' |'ENCODERS'
+    access_level:AccessLevel,
+    deactivation_reason:string,
+    deactivation_effectivity_date: string
 }
 
 export type PageProps<
@@ -26,6 +29,11 @@ export type PageProps<
 
 };
 
+export interface AccessLevel{
+    id:number,
+    role:string,
+    description:string
+}
 
 
 export interface AccountTypes extends TimeStamps {

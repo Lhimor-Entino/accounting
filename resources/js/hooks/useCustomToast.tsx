@@ -9,9 +9,18 @@ const useCustomToast= () => {
             description: getDateTime(),
           })
     }
+    const deactivateToast = (title:string) => {
+        return toast({
+            title: title,
+            description: getDateTime(),
+            className:" bg-red-400 text-white",
+            duration: 2000
+          })
+    }
 
     return {
-        createdToast
+        createdToast,
+        deactivateToast
     }
 }
 
