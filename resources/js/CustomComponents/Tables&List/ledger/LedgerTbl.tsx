@@ -12,7 +12,7 @@ import {
     getSortedRowModel,
     useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, BadgeInfoIcon, BriefcaseBusinessIcon, CalendarClockIcon, ChevronDown, InfoIcon, MoreHorizontal, ShieldXIcon, UserCircle2 } from "lucide-react"
+import { ArrowUpDown, BadgeInfoIcon, BriefcaseBusinessIcon, CalendarClockIcon, ChevronDown, Eye, InfoIcon, MoreHorizontal, ShieldXIcon, UserCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/Components/ui/checkbox"
 import {
@@ -42,6 +42,8 @@ import {
 
 import Authenticated from '@/Layouts/AuthenticatedLayout'
 import { EyeOpenIcon } from '@radix-ui/react-icons'
+import { Inertia } from '@inertiajs/inertia'
+import { Link } from '@inertiajs/react'
 
 type Props = {
     ledgers: Ledgers[]
@@ -121,17 +123,18 @@ const LedgerTbl = (props: Props) => {
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
-                                <DropdownMenuLabel>Manage Account</DropdownMenuLabel>
+                                <DropdownMenuLabel className='text-slate-800'>Manage Account</DropdownMenuLabel>
                                 <DropdownMenuItem
                                     onClick={e => {
-                                        e.preventDefault();
-                                        alert(data.account_id)
-
+                                        e.preventDefault(); 
                                     }}
                                     className=" cursor-pointer"
                                 >
-                                    <EyeOpenIcon />
-                                    Account Breakdown
+                                          <Link className='flex items-center text-slate-700 gap-x-2' href={route('ledger.accountBreakdown',data.account_id)} >
+                                          <Eye className='w-5 h-5 animate-pulse text-slate-700' />
+                                          Account Breakdown
+                                          </Link>
+                                  
                                 </DropdownMenuItem>
                                 <DropdownMenuSeparator />
 

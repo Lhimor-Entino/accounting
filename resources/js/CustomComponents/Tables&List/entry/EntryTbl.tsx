@@ -11,7 +11,7 @@ import {
     getSortedRowModel,
     useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, BadgeInfoIcon, CalendarClockIcon, ChevronDown, InfoIcon, MoreHorizontal, ShieldXIcon, UserCircle2 } from "lucide-react"
+import { ArrowUpDown, BadgeInfoIcon, CalendarClockIcon, ChevronDown, FilePenIcon, InfoIcon, MoreHorizontal, ShieldXIcon, Trash2Icon, UserCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/Components/ui/checkbox"
 import {
@@ -170,11 +170,11 @@ const EntryTbl = (props: Props) => {
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
-                                <DropdownMenuLabel>Actions Here {data.name}</DropdownMenuLabel>
+                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
 
                                 <DropdownMenuSeparator />
-                                {/* <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem> */}
+                                <DropdownMenuItem className="flex items-center"><FilePenIcon className="w-4 h-4"/> Edit</DropdownMenuItem>
+                                <DropdownMenuItem className="flex items-center"><Trash2Icon className="w-4 h-4"/> Delete</DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
 

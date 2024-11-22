@@ -92,3 +92,10 @@ export interface Ledgers {
     total_credit: number
     balance: number
 }
+export interface AccountLedgers {
+    entered_by: User
+    debit_amount:number
+    credit_amount:number
+    transaction_date: string
+    account: Account
+}

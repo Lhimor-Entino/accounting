@@ -1,48 +1,7 @@
 import { Ledgers } from '@/types'
-import * as React from "react"
-import {
-    ColumnDef,
-    ColumnFiltersState,
-    SortingState,
-    VisibilityState,
-    flexRender,
-    getCoreRowModel,
-    getFilteredRowModel,
-    getPaginationRowModel,
-    getSortedRowModel,
-    useReactTable,
-} from "@tanstack/react-table"
-import { ArrowUpDown, BadgeInfoIcon, BriefcaseBusinessIcon, CalendarClockIcon, ChevronDown, InfoIcon, MoreHorizontal, ShieldXIcon, UserCircle2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/Components/ui/checkbox"
-import {
-    DropdownMenu,
-    DropdownMenuCheckboxItem,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/Components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/Components/ui/table"
-
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/Components/ui/popover"
-
+import { BriefcaseBusinessIcon} from "lucide-react"
 import Authenticated from '@/Layouts/AuthenticatedLayout'
-import { EyeOpenIcon } from '@radix-ui/react-icons'
-import LedgerTbl from '@/CustomComponents/Tables&List/legder/LedgerTbl'
+import LedgerTbl from '@/CustomComponents/Tables&List/ledger/LedgerTbl'
 
 type Props = {
     ledgers: Ledgers[]

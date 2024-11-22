@@ -10,11 +10,13 @@ interface ActiveLinkProps {
 const ActiveLink = ({ href, children, title }: ActiveLinkProps) => {
 
     const { url } = usePage();
-    const isActive = url === `/${href}`;
-    const activeClassName = isActive ? 'bg-accent text-accent-foreground' : 'text-muted-foreground';
+
+    const formattedUrl = href.replace(".","/")
+    const isActive = url.includes(formattedUrl);
+    const activeClassName = isActive ? '  shadow-2xl  bg-accent text-accent-foreground bg-muted-foreground/20 font-bold' : 'text-muted-foreground';
 
     return (
-        <Link href={(route(href))} className={`flex items-center justify-center transition-colors rounded-lg h-9 w-9 ${activeClassName} hover:text-foreground md:h-8 md:w-8`}>
+        <Link href={(route(href))} className={`flex  items-center pl-2 gap-x-4  transition-colors  rounded-lg h-9 ${activeClassName} hover:text-foreground `}>
             {children}
             <span className="sr-only">{title}</span>
         </Link>

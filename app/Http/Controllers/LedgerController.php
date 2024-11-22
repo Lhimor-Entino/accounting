@@ -18,12 +18,12 @@ class LedgerController extends Controller
             // ->where('transaction_date', '>=', $startDate)
             // ->where('transaction_date', '<=', $endDate)
             ->get()
-            ->groupBy('account_id'); 
+            ->groupBy('account_id');
 
         $accountBalances = [];
-      
+
         foreach ($ledgerEntries as $accountId => $entries) {
-       
+
             $totalDebit = 0;
             $totalCredit = 0;
 
@@ -37,17 +37,28 @@ class LedgerController extends Controller
             $balance = $totalDebit - $totalCredit;
 
             $accountBalances[] = [
-                
+
                 'account_id' => $accountId,
-                'account_name' => $entries->first()->account->account_name, 
-                'total_debit' => number_format($totalDebit,2),
-                'total_credit' => number_format($totalCredit,2),
+                'account_name' => $entries->first()->account->account_name,
+                'total_debit' => number_format($totalDebit, 2),
+                'total_credit' => number_format($totalCredit, 2),
                 'balance' => $balance,
             ];
         }
 
         return Inertia::render("Ledger", [
             "ledgers" => $accountBalances
+        ]);
+    }
+
+    public function accountBreakdown($account_id)
+    {
+
+        $account_ledgers = Ledger::where("account_id", $account_id)->get();
+        
+
+        return Inertia::render("AccountLedgerBreakdown", [
+            "account_ledgers" => $account_ledgers
         ]);
     }
 }

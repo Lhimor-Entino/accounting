@@ -3,9 +3,11 @@
 use App\Http\Controllers\AccessLevelController;
 use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\AccountSubTypesController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\LedgerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
 use App\Models\AccessLevel;
 use Illuminate\Foundation\Application;
@@ -46,10 +48,17 @@ Route::middleware('auth')->group(function (): void {
     });
     Route::prefix('ledger')->name('ledger.')->group(function () {
         Route::get('/show', [LedgerController::class, 'show'])->name("show");
+        Route::get('/account_breakdown/{account_id}', [LedgerController::class, 'accountBreakdown'])->name("accountBreakdown");
     });
 
     Route::prefix('sub_types')->name('sub_types.')->group(function () {
         Route::post('/store', [AccountSubTypesController::class, 'store'])->name("store");
+    });
+    Route::prefix('company')->name('company.')->group(function () {
+        Route::get('/show', [CompanyController::class, 'show'])->name("show");
+    });
+    Route::prefix('settings')->name('settings.')->group(function () {
+        Route::get('/show', [SettingsController::class, 'show'])->name("show");
     });
     Route::prefix('access_levels')->name('access_levels.')->group(function () {
         Route::get('/show', [AccessLevelController::class, 'show'])->name("show");

@@ -10,17 +10,11 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/Components/ui/sidebar"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/Components/ui/popover"
-
-import { Inertia } from "@inertiajs/inertia"
+import { usePage } from "@inertiajs/inertia"
 import { Link } from '@inertiajs/react';
 
 import ActiveLink from "@/CustomComponents/ActiveLink";
-import { Button } from "./ui/button";
+
 import User from "@/CustomComponents/Navigation/User";
 // Menu items.
 const items = [
@@ -51,17 +45,18 @@ const items = [
   },
   {
     title: "Companies",
-    url: "accounts.show",
+    url: "company.show",
     icon: Building2Icon,
   },
   {
     title: "Settings",
-    url: "accounts.show",
+    url: "settings.show",
     icon: Settings,
   },
 ]
 
 export function AppSidebar() {
+
   return (
     <Sidebar>
       <SidebarContent className="">
@@ -76,11 +71,13 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                  
-                          
-                        <Link href={route(item.url)} >
-                           <item.icon className="w-4 h-5" />
+                          <ActiveLink href={item.url} title={item.title} >
+                          <item.icon className="w-4 h-5" />
                           {item.title}
-                        </Link>
+                          </ActiveLink>
+                        {/* <Link href={} >
+                      
+                        </Link> */}
 
                      
 
