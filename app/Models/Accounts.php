@@ -50,4 +50,16 @@ class Accounts extends Model
     {
         return $this->hasMany(Accounts::class, 'account_source_id');
     }
+
+    public function debitAccount(){
+        return $this->hasMany(Entry::class, 'debit_account_id');
+    }
+    public function creditAccount()
+    {
+        return $this->hasMany(Entry::class, 'credit_account_id');
+    }
+    public function accountLedgers(){
+        return $this->hasMany(Ledger::class, 'account_id');
+    }
+
 }

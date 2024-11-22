@@ -13,14 +13,23 @@ const useCustomToast= () => {
         return toast({
             title: title,
             description: getDateTime(),
-            className:" bg-red-400 text-white",
+            className:"  text-white",
             duration: 2000
           })
     }
 
+    const warningToast = (title:string,description:string) => {
+        return toast({
+            title: title,
+            description: description,
+            className:"bg-amber-400 text-black",
+            duration: 2000
+          })
+    }
     return {
         createdToast,
-        deactivateToast
+        deactivateToast,
+        warningToast
     }
 }
 

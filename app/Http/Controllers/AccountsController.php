@@ -28,8 +28,6 @@ class AccountsController extends Controller
         }
       })
       ->get();
-
-
     return Inertia::render('Accounts', [
       'accounts' => $accounts,
       'account_type' => $account_type ? $account_type : 1,

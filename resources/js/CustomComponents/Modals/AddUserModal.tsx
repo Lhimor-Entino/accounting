@@ -37,10 +37,11 @@ const AddUserModal = (props: Props) => {
     const { data, setData, processing, post, reset } = useForm({
         name: "",
         email: "",
+        username:"",
         id: 0,
         role: "0",
         privilege: "0",
-        password: "",
+        password: "pass",
         password_expiration_date: "",
         activation_effectivity_date: "",
         activation_expiration_date: "",
@@ -123,6 +124,19 @@ const AddUserModal = (props: Props) => {
                             value={data.name}
                             disabled={processing ? true : false}
                             onChange={({ target }) => setData('name', target.value)}
+
+                        />
+                    </div>
+                    <div>
+                        <Label htmlFor="u_name" className="text-right">
+                            User Name
+                        </Label>
+                        <Input
+                            id="u_name"
+                            className="col-span-3"
+                            value={data.username}
+                            disabled={processing ? true : false}
+                            onChange={({ target }) => setData('username', target.value)}
 
                         />
                     </div>

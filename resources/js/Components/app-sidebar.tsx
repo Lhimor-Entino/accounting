@@ -1,4 +1,4 @@
-import { Building2Icon, Calendar, CreditCardIcon, Home, Inbox, NotebookPenIcon, Search, Settings, UserCog2Icon } from "lucide-react"
+import { BriefcaseBusinessIcon, Building2Icon, Calendar, CreditCardIcon, Home, Inbox, LayoutDashboardIcon, NotebookPenIcon, Search, Settings, UserCog2Icon } from "lucide-react"
 
 import {
   Sidebar,
@@ -25,9 +25,9 @@ import User from "@/CustomComponents/Navigation/User";
 // Menu items.
 const items = [
   {
-    title: "Home",
+    title: "Dashboard",
     url: "welcome",
-    icon: Home,
+    icon: LayoutDashboardIcon,
   },
   {
     title: "Accounts",
@@ -36,8 +36,13 @@ const items = [
   },
   {
     title: "Journal Entry ",
-    url: "accounts.show",
+    url: "entry.show",
     icon: NotebookPenIcon,
+  },
+  {
+    title: "General Ledger ",
+    url: "ledger.show",
+    icon: BriefcaseBusinessIcon,
   },
   {
     title: "Users",
@@ -70,25 +75,14 @@ export function AppSidebar() {
 
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    {
-                      item.title !== 'Settings' ? (
-                   
+                 
+                          
                         <Link href={route(item.url)} >
                            <item.icon className="w-4 h-5" />
                           {item.title}
                         </Link>
 
-                      ) : <Popover>
-                        <PopoverTrigger className="flex gap-2 ml-2">
-
-                          <item.icon className="w-4 h-5" />
-                          <span>{item.title}</span>
-                        </PopoverTrigger>
-                        <PopoverContent >
-                          <Button onClick={() => Inertia.post(route('logout'))} >log out</Button>
-                        </PopoverContent>
-                      </Popover>
-                    }
+                     
 
                   </SidebarMenuButton>
                 </SidebarMenuItem>

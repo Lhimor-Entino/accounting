@@ -14,9 +14,9 @@ import {
 } from "@/Components/ui/select"
 import AccountPayableList from '../Tables&List/liabilities/AccountPayableList'
 import AdvancesToOfficers from '../Tables&List/liabilities/AdvancesToOfficers'
-import Sales from '../Tables&List/Revenue/Sales'
-import InterestIncome from '../Tables&List/Revenue/InterestIncome'
-import OtherIncome from '../Tables&List/Revenue/OtherIncome'
+import Sales from '../Tables&List/revenue/Sales'
+import InterestIncome from '../Tables&List/revenue/InterestIncome'
+import OtherIncome from '../Tables&List/revenue/OtherIncome'
 import { Button } from '@/components/ui/button'
 import AddExpenses from '../Modals/AddExpenses'
 interface Props {

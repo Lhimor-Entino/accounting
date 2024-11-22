@@ -36,7 +36,7 @@ const User:FC = () => {
             <DropdownMenuContent className="w-80 z-[500]" align="start" alignOffset={11} forceMount>
                 <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-medium leading-none">{user.name}</p>
+                        <p className="text-sm font-medium leading-none uppercase">{user.name}</p>
                         {/* <p className="text-xs leading-none text-primary">
                             {user.company_id}
                         </p> */}

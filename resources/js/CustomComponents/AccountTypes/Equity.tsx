@@ -14,7 +14,7 @@ import {
 } from "@/Components/ui/select"
 import AccountPayableList from '../Tables&List/liabilities/AccountPayableList'
 import AdvancesToOfficers from '../Tables&List/liabilities/AdvancesToOfficers'
-import Capital from '../Tables&List/Equity/Capital'
+import Capital from '../Tables&List/equity/Capital'
 interface Props {
     accounts: Account[]
     account_type: number

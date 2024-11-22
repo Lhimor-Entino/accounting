@@ -43,7 +43,7 @@ const AdvancesToEmployeesList = (props: Props) => {
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Account List">
             {
-              data.map((dt: Account, index: number) => <CommandItem>
+              data.map((dt: Account, index: number) => <CommandItem key={index}>
                 <Contact2Icon />
                 <span>{dt.name}</span>
               </CommandItem>)

@@ -9,6 +9,7 @@ class AccountSubTypes extends Model
 {
     //
     use HasFactory;
+    protected $with = ['accountType'];
     protected $fillable = [
         'name',
         'abbr',

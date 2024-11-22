@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import AddUserModal from '@/CustomComponents/Modals/AddUserModal';
-import UsersTbl from '@/CustomComponents/Tables&List/Users/UsersTbl';
+import UsersTbl from '@/CustomComponents/Tables&List/users/UsersTbl';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
 import { User } from '@/types';
 import { UserCog2Icon } from 'lucide-react';

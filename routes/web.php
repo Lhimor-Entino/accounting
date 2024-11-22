@@ -3,6 +3,8 @@
 use App\Http\Controllers\AccessLevelController;
 use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\AccountSubTypesController;
+use App\Http\Controllers\EntryController;
+use App\Http\Controllers\LedgerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Models\AccessLevel;
@@ -35,6 +37,15 @@ Route::middleware('auth')->group(function (): void {
         Route::post('/store', [UserController::class, 'store'])->name("store");
         Route::post('/deactivateAccount', [UserController::class, 'deactivateAccount'])->name("deactivateAccount");
         
+    });
+    Route::prefix('entry')->name('entry.')->group(function () {
+        Route::get('/show', [EntryController::class, 'show'])->name("show");
+        Route::post('/store', [EntryController::class, 'store'])->name("store");
+        // Route::post('/deactivateAccount', [UserController::class, 'deactivateAccount'])->name("deactivateAccount");
+        
+    });
+    Route::prefix('ledger')->name('ledger.')->group(function () {
+        Route::get('/show', [LedgerController::class, 'show'])->name("show");
     });
 
     Route::prefix('sub_types')->name('sub_types.')->group(function () {

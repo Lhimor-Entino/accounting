@@ -20,6 +20,7 @@ class User extends Authenticatable
   
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
         'role',
@@ -37,6 +38,12 @@ class User extends Authenticatable
      
     ];
 
+    public function entered(){
+        return $this->hasMany(Entry::class,'entered_by');
+    }
+    public function ledgerkeyer(){
+        return $this->hasMany(Ledger::class,'entered_by');
+    }
     public function accessLevel() {
         return $this->belongsTo(AccessLevel::class,'privilege');
     }
